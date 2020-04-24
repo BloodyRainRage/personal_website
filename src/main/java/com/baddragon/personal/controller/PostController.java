@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class PostController {
@@ -20,7 +19,7 @@ public class PostController {
     @GetMapping("/")
     public String hello(Model model, @RequestParam(required = false) String query){
         model.addAttribute("posts", memPostService.all(query));
-        return "Hello";
+        return "blog_posts";
     }
 
 }

@@ -10,9 +10,11 @@
                     <span class="card-title activator grey-text text-darken-4">${post.title}<i
                                 class="material-icons right">more_vert</i></span>
 
-                <p><#list post.tags as tag>
-                <a href="#">${tag}</a>
-                </#list></p>
+                <p>
+                    <#list post.tags as tag>
+                        <a href="/?query=${tag}">${tag}</a>
+                    </#list>
+                </p>
             </div>
             <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">${post.title}<i
