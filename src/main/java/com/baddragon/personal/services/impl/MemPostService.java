@@ -1,6 +1,6 @@
 package com.baddragon.personal.services.impl;
 
-import com.baddragon.personal.dto.Post;
+import com.baddragon.personal.dto.PostDto;
 import com.baddragon.personal.services.api.PostService;
 import org.springframework.stereotype.Service;
 
@@ -11,14 +11,14 @@ import java.util.stream.Collectors;
 
 @Service
 public class MemPostService implements PostService {
-    private List<Post> posts = new ArrayList<>(Arrays.asList(
-            Post.builder()
+    private List<PostDto> posts = new ArrayList<>(Arrays.asList(
+            PostDto.builder()
                     .title("First")
                     .body("first body")
                     .img("images/1.gif")
                     .tags(Arrays.asList("qwe", "ewq"))
                     .build(),
-            Post.builder()
+            PostDto.builder()
                     .title("Second")
                     .body("second body")
                     .img("images/2.png")
@@ -27,7 +27,7 @@ public class MemPostService implements PostService {
     ));
 
     @Override
-    public List<Post> all(String query) {
+    public List<PostDto> all(String query) {
         return query != null && !query.isEmpty() ? posts.stream().filter(post ->
                 post.getTags().toString().toLowerCase().matches(".*" + query.toLowerCase() + ".*"))
                 .collect(Collectors.toList())

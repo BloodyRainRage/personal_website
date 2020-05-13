@@ -4,12 +4,9 @@
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Main page</title>
-        <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!--Import materialize.css-->
+        <title>Yol, the dragon - Main page</title>
+        <link href="/css/icon.css" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="/css/materialize.min.css" media="screen,projection"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
@@ -20,23 +17,23 @@
                 <a href="/" class="brand-logo center">Yol, the dragon</a>
                 <a href="#" data-target="slide" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">Javascript</a></li>
-                    <li><a href="mobile.html">Mobile</a></li>
+                    <li><a href="/">Blog</a></li>
+                    <li><a href="/">Projects</a></li>
+                    <li><a href="about">About</a></li>
+                    <#--                    <li><a href="/">Mobile</a></li>-->
                 </ul>
             </div>
         </nav>
 
         <ul class="sidenav " id="slide">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">Javascript</a></li>
-            <li><a href="mobile.html">Mobile</a></li>
+            <li><a href="/">Blog</a></li>
+            <li><a href="/">Projects</a></li>
+            <li><a href="about">About</a></li>
         </ul>
         <div style="padding-top: 5%">
 
         </div>
+        <#--        <div class="container">-->
         <nav>
             <div class="row nav-wrapper grey darken-4">
                 <form>
@@ -48,14 +45,19 @@
                 </form>
             </div>
         </nav>
+        <#--        </div>-->
+
 
         <div class="row">
-            <div class="col s8 offset-s2 hide-on-med-and-down">
+            <div id="feedID" class="col s8 offset-s1">
                 <#nested>
             </div>
-            <div class="col s12  hide-on-large-only show-on-medium-and-down">
-                <#nested>
-            </div>
+<#--            <ul class="collection grey darken-4">-->
+<#--                <li class="collection-item grey darken-4">qwewewewe</li>-->
+<#--                <li class="collection-item grey darken-4">qwewewewe</li>-->
+<#--                <li class="collection-item grey darken-4">qwewewewe</li>-->
+<#--                <li class="collection-item grey darken-4"><a href="/" class="white-text">qwewewewe</a></li>-->
+<#--            </ul>-->
         </div>
 
 
@@ -63,38 +65,52 @@
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
-                        <h5 class="white-text">Footer Content</h5>
+                        <h5 class="white-text">Additional info</h5>
                         <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer
                             content.</p>
                     </div>
                     <div class="col l4 offset-l2 s12">
-                        <h5 class="white-text">Links</h5>
+                        <h5 class="white-text">External Links</h5>
                         <ul>
                             <li><a class="grey-text text-lighten-3" href="https://vk.com/bloodyrainrage">My VK</a></li>
-                            <li><a class="grey-text text-lighten-3" href="https://t.me/bloodyrainrage">My Telegram</a></li>
-                            <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/egor-migaenko-71119118b/">My LinkedIn</a></li>
+                            <li><a class="grey-text text-lighten-3" href="https://t.me/bloodyrainrage">My Telegram</a>
+                            </li>
+                            <li><a class="grey-text text-lighten-3"
+                                   href="https://www.linkedin.com/in/egor-migaenko-71119118b/">My LinkedIn</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-copyright">
                 <div class="container">
-                    © 2020 Yol the dragon
-                    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                    &nbsp;&nbsp;© 2020 Yol, the dragon
+                    <a class="grey-text text-lighten-4 right" href="#">More Links</a>
                 </div>
             </div>
         </footer>
     </div>
 
     <script type="text/javascript" src="/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js">
-    </script>
+    <script type="text/javascript" src="/js/jquery-3.5.0.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelectorAll('.sidenav');
             M.Sidenav.init(elems, {});
-        });</script>
+        });
+
+        window.addEventListener("resize", displayTabs);
+
+        function displayTabs() {
+            if (window.innerWidth < 800) {
+                document.getElementById("feedID").setAttribute("class", "col s12");
+            } else if (window.innerWidth > 800) {
+                document.getElementById("feedID").setAttribute("class", "col s8 offset-s1");
+            }
+        }
+
+        displayTabs();
+
+    </script>
     </body>
     </html>
 </#macro>

@@ -16,12 +16,10 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+public class PostDto {
 
-public class Post {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
     private String title;
+    private String creator;
     private List<String> tags;
     private String body;
     private String img;

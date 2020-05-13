@@ -7,7 +7,7 @@
                 <img class="activator" src="${post.img}">
             </div>
             <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">${post.title}<i
+                    <span class="card-title activator grey-text text-darken-4">${post.title} -- by ${post.creator}<i
                                 class="material-icons right">more_vert</i></span>
 
                 <p>
@@ -22,6 +22,5 @@
                 <p>${post.body}</p>
             </div>
         </div>
-
     </#list>
 </@main.main>
