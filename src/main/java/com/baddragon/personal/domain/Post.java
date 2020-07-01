@@ -49,11 +49,13 @@ public class Post {
         this.creator = creator;
     }
 
+    //returns a list of tags
     public List<String> getTags() {
         List<String> splitedTags = new ArrayList<String>(Arrays.asList(tags.split(" ")));
         return splitedTags;
     }
 
+    //setting list of tags
     public void setTags(List<String> tags) {
         String result = "";
         for (var tag: tags) {

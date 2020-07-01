@@ -22,11 +22,24 @@ public class DatabasePostService implements PostService {
         this.postRepository = postRepository;
     }
 
+
+    //Returns all posts as List of PostDto
+    //if query is not empty shows all posts that containing query
     @Override
     public List<PostDto> all(String query) {
         //List<Post> posts = postRepository.findAllByOrderByIdDesc();
         List<Post> posts = postRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
-        return posts.stream().map(post -> PostDto.builder().title(post.getTitle())
+        return query != null && !query.isEmpty() ? posts.stream().map(post -> PostDto.builder().title(post.getTitle())
+                .body(post.getBody())
+                .creator(post.getCreator())
+                .img(post.getImg())
+                .tags(post.getTags())
+                .build()
+        ).collect(Collectors.toList()).stream().filter(post ->
+                post.getTags().toString().toLowerCase().matches(".*" + query.toLowerCase() + ".*"))
+                .collect(Collectors.toList())
+
+                : posts.stream().map(post -> PostDto.builder().title(post.getTitle())
                 .body(post.getBody())
                 .creator(post.getCreator())
                 .img(post.getImg())
@@ -35,6 +48,7 @@ public class DatabasePostService implements PostService {
         ).collect(Collectors.toList());
     }
 
+    //used to load posts to database
 //    @PostConstruct
 //    public void setup(){
 //        postRepository.saveAll(Arrays.asList(
