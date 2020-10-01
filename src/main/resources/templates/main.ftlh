@@ -12,7 +12,7 @@
     </head>
     <body bgcolor="#424242">
     <div class="container">
-        <nav class="sidenav-trigger grey darken-4">
+        <nav class="sidenav-trigger center-align grey darken-4">
             <div class="nav-wrapper">
                 <a href="/" class="brand-logo center">Yol, the dragon</a>
                 <a href="#" data-target="slide" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -20,6 +20,7 @@
                     <li><a href="/">Blog</a></li>
                     <li><a href="/">Projects</a></li>
                     <li><a href="about">About</a></li>
+                    <li><a href="controlpage">Controll Page</a></li>
                     <#--                    <li><a href="/">Mobile</a></li>-->
                 </ul>
             </div>
@@ -29,6 +30,7 @@
             <li><a href="/">Blog</a></li>
             <li><a href="/">Projects</a></li>
             <li><a href="about">About</a></li>
+            <li><a href="controlpage">Controll Page</a></li>
         </ul>
         <div style="padding-top: 5%">
 
@@ -42,6 +44,7 @@
                         <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                         <i class="material-icons">close</i>
                     </div>
+                    <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                 </form>
             </div>
         </nav>
@@ -52,12 +55,12 @@
             <div id="feedID" class="col s8 offset-s1">
                 <#nested>
             </div>
-<#--            <ul class="collection grey darken-4">-->
-<#--                <li class="collection-item grey darken-4">qwewewewe</li>-->
-<#--                <li class="collection-item grey darken-4">qwewewewe</li>-->
-<#--                <li class="collection-item grey darken-4">qwewewewe</li>-->
-<#--                <li class="collection-item grey darken-4"><a href="/" class="white-text">qwewewewe</a></li>-->
-<#--            </ul>-->
+            <#--            <ul class="collection grey darken-4">-->
+            <#--                <li class="collection-item grey darken-4">qwewewewe</li>-->
+            <#--                <li class="collection-item grey darken-4">qwewewewe</li>-->
+            <#--                <li class="collection-item grey darken-4">qwewewewe</li>-->
+            <#--                <li class="collection-item grey darken-4"><a href="/" class="white-text">qwewewewe</a></li>-->
+            <#--            </ul>-->
         </div>
 
 

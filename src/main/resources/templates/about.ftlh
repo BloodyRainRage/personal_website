@@ -62,7 +62,7 @@
                     <p>Currently I'm studying in St. Petersburg Polytechnic University as software engineer.
                     <p>&nbsp;
                     <p><h6><b>About this site</b></h6><br>
-                    <p>This is my personal website I made to know about Spring framework.
+                    <p>This is my personal website I made to try Spring framework.
                     <p>I'll use it to post my thoughts and updates of projects in <a href="/">blog</a> section.
                     <p>Completed projects will be in projects section
 
@@ -110,24 +110,24 @@
 
 <script type="text/javascript" src="/js/materialize.min.js"></script>
 <script type="text/javascript" src="/js/jquery-3.5.0.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var elems = document.querySelectorAll('.sidenav');
-        M.Sidenav.init(elems, {});
-    });
+<#--<script>-->
+<#--    document.addEventListener('DOMContentLoaded', function () {-->
+<#--        var elems = document.querySelectorAll('.sidenav');-->
+<#--        M.Sidenav.init(elems, {});-->
+<#--    });-->
 
-    window.addEventListener("resize", displayTabs);
+<#--    window.addEventListener("resize", displayTabs);-->
 
-    function displayTabs() {
-        if (window.innerWidth < 800) {
-            document.getElementById("feedID").setAttribute("class", "col s12");
-        } else if (window.innerWidth > 800) {
-            document.getElementById("feedID").setAttribute("class", "col s8 offset-s1");
-        }
-    }
+<#--    function displayTabs() {-->
+<#--        if (window.innerWidth < 800) {-->
+<#--            document.getElementById("feedID").setAttribute("class", "col s12");-->
+<#--        } else if (window.innerWidth > 800) {-->
+<#--            document.getElementById("feedID").setAttribute("class", "col s8 offset-s1");-->
+<#--        }-->
+<#--    }-->
 
-    displayTabs();
+<#--    displayTabs();-->
 
-</script>
+<#--</script>-->
 </body>
 </html>

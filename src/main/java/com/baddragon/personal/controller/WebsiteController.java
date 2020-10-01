@@ -19,15 +19,21 @@ public class WebsiteController {
     }
 
 
+
     @GetMapping("/")
     public String mainPage(Model model, @RequestParam(required = false) String query){
         model.addAttribute("posts", postService.all(query));
         return "blog_posts";
     }
     
-    @GetMapping("about")
+    @GetMapping("/about")
     public  String aboutPage(Model model, @RequestParam(required = false) String query){
         return "about";
     }
 
+
+    @GetMapping("/controlpage")
+    public String controlPage(){
+        return "controlpage";
+    }
 }
