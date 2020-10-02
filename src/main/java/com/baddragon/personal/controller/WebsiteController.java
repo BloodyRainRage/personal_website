@@ -1,7 +1,6 @@
 package com.baddragon.personal.controller;
 
 import com.baddragon.personal.services.api.PostService;
-import com.baddragon.personal.services.impl.DatabasePostService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

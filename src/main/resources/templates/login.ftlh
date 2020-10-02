@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <title>Spring Security Example </title>
+    <title>Please sign in</title>
 </head>
 <body>
-
-<form action="/login" method="post">
-    <div><label> User Name : <input type="text" id="username" name="username"/> </label></div>
-    <div><label> Password: <input type="password" id="password" name="password"/> </label></div>
-<#--    <input type="hidden" name="_csrf.parameterName" value="${_csrf.token}"/>-->
-    <div><input type="submit" value="Sign In"/></div>
-</form>
-<a href="registration">Add new user</a>
+<div>
+    <form method="post" action="/login">
+        <h2>Please sign in</h2>
+        <div role="alert">You have been signed out</div>        <p>
+            <label for="username" >Username</label>
+            <input type="text" id="username" name="username" placeholder="Username" required autofocus>
+        </p>
+        <p>
+            <label for="password" >Password</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+        </p>
+        <input name="_csrf" type="hidden" value="${_csrf.token}" />
+        <button  type="submit">Sign in</button>
+    </form>
+</div>
+<a href="/registration">Add new user</a>
 </body>
 </html>

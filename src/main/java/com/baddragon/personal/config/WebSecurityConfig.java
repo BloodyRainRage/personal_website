@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
-                    //.loginPage("/login")
+                    .loginPage("/login")
                     .permitAll()
                 .and()
                     .logout()
@@ -48,27 +48,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
-    @Bean
-    @Override
-    public UserDetailsService userDetailsService() {
-        UserDetails user =
-                User.withDefaultPasswordEncoder()
-                        .username("user")
-                        .password("password")
-                        .roles("USER")
-                        .build();
 
-        return new InMemoryUserDetailsManager(user);
+    @Override 
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication()
+                .dataSource(dataSource)
+                .passwordEncoder(NoOpPasswordEncoder.getInstance()) //deprecated, but will be replaced soon
+                .usersByUsernameQuery("select username, password, active from usr where username=?")
+                .authoritiesByUsernameQuery("select u.username, ur.roles from usr u join user_role ur " +
+                        "on (u.id = ur.user_id) where u.username=?");
+
     }
-
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.jdbcAuthentication()
-//                .dataSource(dataSource)
-//                .passwordEncoder(NoOpPasswordEncoder.getInstance()) //deprecated, but will be replaced soon
-//                .usersByUsernameQuery("select username, password, active from usr where username=?")
-//                .authoritiesByUsernameQuery("select u.username, ur.roles from usr u join user_role ur " +
-//                        "on (u.id = ur.user_id) where u.username=?");
-//
-//    }
 }
