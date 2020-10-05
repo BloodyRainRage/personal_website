@@ -1,5 +1,6 @@
 package com.baddragon.personal.services.impl;
 
+import com.baddragon.personal.domain.Post;
 import com.baddragon.personal.dto.PostDto;
 import com.baddragon.personal.jpa.PostRepository;
 import com.baddragon.personal.services.api.PostService;
@@ -27,17 +28,24 @@ public class DatabasePostService implements PostService {
         //List<Post> posts = postRepository.findAllByOrderByIdDesc();
         List<PostDto> posts = postRepository.findAll(Sort.by(Sort.Direction.DESC, "id"))
                 .stream().map(post -> PostDto.builder().title(post.getTitle())
-                .body(post.getBody())
-                .creator(post.getCreator())
-                .img(post.getImg())
-                .tags(post.getTags())
+                    .body(post.getBody())
+                    .author(post.getAuthor())
+                    //.creator(post.getAuthorName())
+                    .img(post.getImg())
+                    .tags(post.getTags())
+                    //.author(post.getAuthor())
                 .build()
         ).collect(Collectors.toList());
 
         return query != null && !query.isEmpty() ? posts.stream().filter(post ->
                 post.getTags().toString().toLowerCase().matches(".*" + query.toLowerCase() + ".*"))
-                .collect(Collectors.toList())
+                    .collect(Collectors.toList())
                 : posts;
+    }
+
+    @Override
+    public void save(Post post){
+        postRepository.save(post);
     }
 
     //used to save posts to database

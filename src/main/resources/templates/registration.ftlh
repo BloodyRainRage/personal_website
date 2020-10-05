@@ -5,6 +5,7 @@
 </head>
 <body>
 Add new user
+
 <div>
     <form method="post" action="/registration">
         <h2>Add new user</h2>

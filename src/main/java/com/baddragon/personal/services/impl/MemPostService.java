@@ -1,5 +1,6 @@
 package com.baddragon.personal.services.impl;
 
+import com.baddragon.personal.domain.Post;
 import com.baddragon.personal.dto.PostDto;
 import com.baddragon.personal.services.api.PostService;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,11 @@ public class MemPostService implements PostService {
                 post.getTags().toString().toLowerCase().matches(".*" + query.toLowerCase() + ".*"))
                 .collect(Collectors.toList())
         : posts;
+    }
+
+    @Override
+    public void save(Post post){
+
     }
 
 }

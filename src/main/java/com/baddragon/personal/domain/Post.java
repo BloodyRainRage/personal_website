@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
 @Entity
 @Table(name = "posts")
 //@Data
@@ -20,10 +21,14 @@ public class Post {
     private Long id;
 
     private String title;
-    private String creator;
+   // private String creator;
     private String tags;
     private String body;
     private String img;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User author;
 
     public Long getId() {
         return id;
@@ -41,12 +46,17 @@ public class Post {
         this.title = title;
     }
 
-    public String getCreator() {
-        return creator;
-    }
+//    public String getCreator() {
+//        return creator;
+//    }
+//
+//    public void setCreator(String creator) {
+//        this.creator = creator;
+//    }
 
-    public void setCreator(String creator) {
-        this.creator = creator;
+    public String getAuthorName(){
+        return author != null ? author.getUsername()
+                : "none";
     }
 
     //returns a list of tags
@@ -77,6 +87,14 @@ public class Post {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 
 }

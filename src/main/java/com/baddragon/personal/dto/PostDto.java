@@ -1,12 +1,11 @@
 package com.baddragon.personal.dto;
 
+import com.baddragon.personal.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -18,9 +17,16 @@ import java.util.List;
 public class PostDto {
 
     private String title;
-    private String creator;
+  //  private String creator;
     private List<String> tags;
     private String body;
     private String img;
+
+    private User author;
+
+    public String getAuthorName(){
+        return author != null ? author.getUsername()
+                : "none";
+    }
 
 }

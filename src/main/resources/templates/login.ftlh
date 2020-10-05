@@ -5,9 +5,10 @@
 </head>
 <body>
 <div>
+
     <form method="post" action="/login">
         <h2>Please sign in</h2>
-        <div role="alert">You have been signed out</div>        <p>
+        <div role="alert">You have been signed out</div><p>
             <label for="username" >Username</label>
             <input type="text" id="username" name="username" placeholder="Username" required autofocus>
         </p>

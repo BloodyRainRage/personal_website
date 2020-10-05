@@ -19,7 +19,14 @@
                 <li><a href="/">Blog</a></li>
                 <li><a href="/">Projects</a></li>
                 <li><a href="about">About</a></li>
-                <#--                    <li><a href="/">Mobile</a></li>-->
+                <li>
+                    <div>
+                        <form class="grey darken-4 white-text" action="/logout" method="post">
+                            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+                            <input class="waves-effect  btn-flat " type="submit" value="Sign Out"/>
+                        </form>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
@@ -27,25 +34,15 @@
     <ul class="sidenav " id="slide">
         <li><a href="/">Blog</a></li>
         <li><a href="/">Projects</a></li>
-        <li><a href="about">About</a></li>
+        <li>
+            <div>
+                <form class="grey darken-4 white-text" action="/logout" method="post">
+                    <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+                    <input class="waves-effect  btn-flat " type="submit" value="Sign Out"/>
+                </form>
+            </div>
+        </li>
     </ul>
-    <#--    <div style="padding-top: 5%">-->
-
-    <#--    </div>-->
-    <#--        <div class="container">-->
-    <#--    <nav>-->
-    <#--        <div class="row nav-wrapper grey darken-4">-->
-    <#--            <form>-->
-    <#--                <div class="input-field">-->
-    <#--                    <input name="query" id="search" type="search" required>-->
-    <#--                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>-->
-    <#--                    <i class="material-icons">close</i>-->
-    <#--                </div>-->
-    <#--            </form>-->
-    <#--        </div>-->
-    <#--    </nav>-->
-    <#--        </div>-->
-
 
     <div class="row" style="margin-top: 3%">
         <div id="aboutID" class="col s8">

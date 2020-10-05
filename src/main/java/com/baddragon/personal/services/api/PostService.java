@@ -9,4 +9,6 @@ public interface PostService {
 
      List<PostDto> all(String query);
 
+     public void save(Post post);
+
 }

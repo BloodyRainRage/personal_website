@@ -1,10 +1,14 @@
 package com.baddragon.personal.controller;
 
+import com.baddragon.personal.domain.Post;
+import com.baddragon.personal.domain.User;
 import com.baddragon.personal.services.api.PostService;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -26,7 +30,7 @@ public class WebsiteController {
     }
     
     @GetMapping("/about")
-    public  String aboutPage(Model model, @RequestParam(required = false) String query){
+    public String aboutPage(Model model, @RequestParam(required = false) String query){
         return "about";
     }
 
@@ -35,4 +39,22 @@ public class WebsiteController {
     public String controlPage(){
         return "controlpage";
     }
+
+    @PostMapping("/controlpage")
+    public String addPost(@AuthenticationPrincipal User user,
+                          @RequestParam String title,
+                          @RequestParam String tags,
+                          @RequestParam String body){
+
+        postService.save(Post.builder()
+                            .title(title)
+                            .author(user)
+                            .body(body)
+                            .tags(tags)
+                            .img("images/1.gif")
+                        .build());
+
+        return "redirect:/";
+    }
+
 }
